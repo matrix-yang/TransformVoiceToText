@@ -27,7 +27,6 @@
         </config-file>
         <source-file src="src/android/TransformVoiceToText.java" target-dir="src/VoiceToText/TransformVoiceToText"/>
         <source-file src="src/android/Msc.jar" target-dir="libs"/>
-        <source-file src="src/android/android-support-v4.jar" target-dir="libs"/>
         <source-file src="src/android/Sunflower.jar" target-dir="libs"/>
         <source-file src="src/android/armeabi/libmsc.so" target-dir="libs/armeabi"/>
         <source-file src="src/android/armeabi/libmsc.so" target-dir="libs"/>

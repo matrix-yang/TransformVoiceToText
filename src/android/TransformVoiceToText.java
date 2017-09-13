@@ -35,7 +35,7 @@ public class TransformVoiceToText extends CordovaPlugin {
 
         @Override
         public void onVolumeChanged(int volume, byte[] data) {
-            stringBuffer.append("当前正在说话，音量大小：" + volume);
+            //stringBuffer.append("当前正在说话，音量大小：" + volume);
         }
 
         @Override
@@ -51,13 +51,13 @@ public class TransformVoiceToText extends CordovaPlugin {
         @Override
         public void onEndOfSpeech() {
             // 此回调表示：检测到了语音的尾端点，已经进入识别过程，不再接受语音输入
-            stringBuffer.append("结束说话");
+            //stringBuffer.append("结束说话");
         }
 
         @Override
         public void onBeginOfSpeech() {
             // 此回调表示：sdk内部录音机已经准备好了，用户可以开始语音输入
-            stringBuffer.append("开始说话");
+            //stringBuffer.append("开始说话");
         }
 
         @Override
@@ -103,10 +103,10 @@ public class TransformVoiceToText extends CordovaPlugin {
         @Override
         public void onInit(int code) {
             if (code != ErrorCode.SUCCESS) {
-                stringBuffer.append("初始化失败,错误码："+code);
+                callbackContext.success("初始化失败,错误码："+code);
             }
         }
-    }
+    };
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
