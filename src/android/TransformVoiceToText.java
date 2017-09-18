@@ -89,6 +89,7 @@ public class TransformVoiceToText extends CordovaPlugin {
         mAsr.setParameter(SpeechConstant.ENGINE_TYPE, SpeechConstant.TYPE_CLOUD);
         //设置返回结果为json格式
         mAsr.setParameter(SpeechConstant.RESULT_TYPE, "plain");
+        mAsr.setParameter(SpeechConstant.ACCENT, "cantonese");
         mAsr.setParameter(SpeechConstant.CLOUD_GRAMMAR, null);
         mAsr.setParameter(SpeechConstant.ENGINE_MODE,null);
         mAsr.setParameter(SpeechConstant.SUBJECT,null);
