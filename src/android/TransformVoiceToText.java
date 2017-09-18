@@ -25,7 +25,6 @@ public class TransformVoiceToText extends CordovaPlugin {
         object=SpeechUtility.createUtility(this.cordova.getActivity(), SpeechConstant.APPID+"=59a8fe1c,"+SpeechConstant.FORCE_LOGIN +"=true");
         //初始化识别对象
         mAsr = SpeechRecognizer.createRecognizer(this.cordova.getActivity(), mInitListener);
-        setParam();
     }
 
     /**
@@ -83,13 +82,13 @@ public class TransformVoiceToText extends CordovaPlugin {
      * @param
      * @return
      */
-    public boolean setParam() {
+    public boolean setParam(String localism) {
         boolean result = false;
         //设置识别引擎
         mAsr.setParameter(SpeechConstant.ENGINE_TYPE, SpeechConstant.TYPE_CLOUD);
         //设置返回结果为json格式
         mAsr.setParameter(SpeechConstant.RESULT_TYPE, "plain");
-        mAsr.setParameter(SpeechConstant.ACCENT, "cantonese");
+        mAsr.setParameter(SpeechConstant.ACCENT, localism);
         mAsr.setParameter(SpeechConstant.CLOUD_GRAMMAR, null);
         mAsr.setParameter(SpeechConstant.ENGINE_MODE,null);
         mAsr.setParameter(SpeechConstant.SUBJECT,null);
@@ -113,6 +112,7 @@ public class TransformVoiceToText extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals("transform")) {
             init();
+            setParam(args.getString(0));
             stringBuffer =new StringBuffer();
             mAsr.startListening(mRecognizerListener);
             this.callbackContext=callbackContext;
