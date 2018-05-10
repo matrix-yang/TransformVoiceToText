@@ -1,4 +1,7 @@
 #前端js使用说明
+```
+cordova plugin add https://github.com/matrix-yang/TransformVoiceToText.git
+```
 ```javascript
   cordova.plugins.TransformVoiceToText.transform("cantonese",function (msg) {
             alert("success"+msg);
